@@ -1,12 +1,10 @@
 name: CI/CD for Local Kubernetes
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
-    branches:
-      - main
+    branches: [main]
+  push:
+    branches: [main]
 
 jobs:
   build-and-scan:
@@ -54,3 +52,4 @@ jobs:
           helm upgrade --install k8s-helm-sample ./helm \
             --set image.repository=${{ secrets.DOCKER_USERNAME }}/k8s-helm-sample \
             --set image.tag=latest
+
