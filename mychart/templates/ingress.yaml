@@ -2,18 +2,18 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ .Chart.Name }}-ingress       # Uses chart name for Ingress
+  name: {{ .Chart.Name }}
   annotations:
-    kubernetes.io/ingress.class: {{ .Values.ingress.className }}  # Nginx Ingress
+    kubernetes.io/ingress.class: nginx
 spec:
   rules:
-    - host: {{ .Values.ingress.hosts[0].host }}   # Take host from values.yaml
+    - host: local.k8s
       http:
         paths:
-          - path: {{ .Values.ingress.hosts[0].paths[0].path }}  # Path from values.yaml
-            pathType: {{ .Values.ingress.hosts[0].paths[0].pathType }}
+          - path: /
+            pathType: Prefix
             backend:
               service:
-                name: {{ .Chart.Name }}-service   # Service name
+                name: {{ .Chart.Name }}
                 port:
-                  number: 3000                   # Service port
+                  number: {{ .Values.service.port }}
