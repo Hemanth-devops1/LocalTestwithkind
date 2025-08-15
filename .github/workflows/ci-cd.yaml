@@ -80,7 +80,7 @@ jobs:
 
       - name: 🚀 Deploy with Helm
         run: |
-          helm upgrade --install k8s-helm-sample ./helm \
+          helm upgrade --install k8s-helm-sample ./hmychart \
             --set image.repository=${{ secrets.DOCKER_USERNAME }}/k8s-helm-sample \
             --set image.tag=latest \
             --wait
