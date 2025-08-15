@@ -6,16 +6,11 @@ image:
   pullPolicy: IfNotPresent
 
 service:
-  type: NodePort
+  type: ClusterIP
   port: 3000
-  nodePort: 30030  # optional, kind can access localhost:30030
 
 ingress:
   enabled: true
   className: nginx
-  hosts:
-    - host: local.k8s
-      paths:
-        - path: /
-          pathType: Prefix
-  tls: []
+  host: local.k8s
+  path: /
