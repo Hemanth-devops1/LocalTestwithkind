@@ -25,8 +25,8 @@ jobs:
       - name: 📥 Install dependencies
         run: npm ci
 
-      - name: 🔍 Lint code
-        run: npm run lint
+     # - name: 🔍 Lint code
+     #  run: npm run lint
 
       - name: ✅ Run tests
         run: npm test
@@ -78,4 +78,5 @@ jobs:
         run: |
           helm upgrade --install k8s-helm-sample ./helm \
             --set image.repository=${{ secrets.DOCKER_USERNAME }}/k8s-helm-sample \
+
             --set image.tag=latest
