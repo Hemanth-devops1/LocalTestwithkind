@@ -39,8 +39,8 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-      - name: 🛡 Snyk code scan
-        run: snyk code test
+      - name: Run Snyk code test
+        run: snyk code test --fail-on=high
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
@@ -80,3 +80,4 @@ jobs:
             --set image.repository=${{ secrets.DOCKER_USERNAME }}/k8s-helm-sample \
 
             --set image.tag=latest
+
