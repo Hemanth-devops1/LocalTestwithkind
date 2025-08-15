@@ -84,9 +84,16 @@ jobs:
             --set image.repository=${{ secrets.DOCKER_USERNAME }}/k8s-helm-sample \
             --set image.tag=latest \
             --wait
-
+  
+      
       - name: 🟢 Wait for pods to be ready
-        run: kubectl rollout status deployment/myapp-deployment
+        run: kubectl rollout status deployment/myapp
+
+      - name: 📄 Check 
+        run: kubectl get deployments
+
+      - name: 📄 Check pods
+        run: kubectl get pods   
 
       - name: 📄 Check Services
         run: kubectl get svc
