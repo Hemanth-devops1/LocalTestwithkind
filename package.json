@@ -1,0 +1,19 @@
+{
+  "name": "node-eks-local",
+  "version": "1.0.0",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "eslint": "^8.57.0"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "jest --passWithNoTests",
+    "lint": "eslint .",
+    "snyk-protect": "snyk test",
+    "snyk-monitor": "snyk monitor"
+  }
+}
