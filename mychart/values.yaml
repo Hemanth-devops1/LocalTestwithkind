@@ -1,0 +1,21 @@
+replicaCount: 2
+
+image:
+  repository: your-docker-username/k8s-helm-sample
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: NodePort
+  port: 3000
+  nodePort: 30030  # optional, kind can access localhost:30030
+
+ingress:
+  enabled: true
+  className: nginx
+  hosts:
+    - host: local.k8s
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
