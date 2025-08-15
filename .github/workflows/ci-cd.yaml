@@ -87,7 +87,7 @@ jobs:
   
       
       - name: 🟢 Wait for pods to be ready
-        run: kubectl rollout status deployment/myapp
+        run: kubectl rollout status deployment/myapp-deployment
 
       - name: 📄 Check 
         run: kubectl get deployments
