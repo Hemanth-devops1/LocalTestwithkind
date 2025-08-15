@@ -80,7 +80,7 @@ jobs:
 
       - name: 🚀 Deploy with Helm
         run: |
-          helm upgrade --install k8s-helm-sample ./hmychart \
+          helm upgrade --install k8s-helm-sample ./mychart \
             --set image.repository=${{ secrets.DOCKER_USERNAME }}/k8s-helm-sample \
             --set image.tag=latest \
             --wait
@@ -92,4 +92,5 @@ jobs:
         run: kubectl get svc
 
       - name: 🌐 Check Ingress
+
         run: kubectl get ingress
